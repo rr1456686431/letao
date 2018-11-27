@@ -31,6 +31,9 @@ $(function () {
                         min: 2,
                         max: 6,
                         message: "用户名为2-6位"
+                    },
+                    callback: {
+                        message:"用户名不存在"
                     }
                 }
             },
@@ -43,6 +46,9 @@ $(function () {
                         min: 6,
                         max: 12,
                         message: '密码为6-12位'
+                    },
+                    callback: {
+                        message:"密码不正确"
                     }
                 }
             }
@@ -63,11 +69,18 @@ $(function () {
             success: function (info) {
                 console.log(info)  
                 if (info.error === 1000) {
-                    alert('用户名不正确')
+                    // alert('用户名不正确')
+                    // 更新当前input的校验状态，更新成失败
+                    // updateStatus
+                    // 参数1：filed 字段名称
+                    // 参数2：status状态 NOT_VALIDATED (未校验),VALIDATING（校验中）, INVALID（校验失败） or VALID（检验成功）
+                    // 参数3：validator 配置校验规则，用来配置输出的提示信息
+                    $("#form").data('bootstrapValidator').updateStatus("username","INVALID","callback")
                     return
                 }
                 if (info.error === 1001) {
-                    alert('密码不正确')
+                    // alert('密码不正确')
+                    $('#form').data('bootstrapValidator').updateStatus("password","INVALID","callback")
                     return
                 }
                 if (info.success) {
