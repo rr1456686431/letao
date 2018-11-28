@@ -46,7 +46,36 @@
                 <li><a href="#">管理系统</a></li>
                 <li class="active">用户管理</li>
             </ol>
-                      
+            <!-- 表格 -->
+            <!-- 
+                序号	用户名	手机号	状态	操作
+                1	itcast	15757771111	正常   禁用
+             -->
+            <!-- 
+                table 基本样式
+                table-bordered  添加边框
+                table-hover 添加鼠标悬停效果
+              -->
+            <table class="table table-bordered  table-hover">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>用户名</th>
+                        <th>手机号</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>itcast</td>
+                        <td>15757771111</td>
+                        <td>正常</td>
+                        <td><button class="btn btn-danger">禁用</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
