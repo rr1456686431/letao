@@ -12,3 +12,150 @@
 .mt_150 {
   margin-top: 150px;
 }
+.mt_20{
+  margin-top: 20px;
+}
+ul,
+li{
+  margin: 0;
+  padding: 0;
+  list-style:none;
+}
+a:link,
+a:visited,
+a:hover,
+a:active{
+  text-decoration:none;
+}
+
+
+
+
+
+
+
+
+
+/* 侧边栏 */
+.lt_aside{
+  width: 180px;
+  height: 100%;
+  background-color: #222D32;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:999;
+  transition:all 1s;
+
+}
+.lt_aside.hidemenu{
+  left:-180px;
+}
+.lt_aside .header a{
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  text-align:center;
+  display: block;
+  font-size:26px;
+  color:#fff;
+  background-color: #367FA9;
+}
+.lt_aside .user{
+  padding-top:20px;
+
+}
+.lt_aside .user img{
+  width: 80px;
+  height: 80px;
+  display:block;
+  margin:0 auto;
+  border-radius: 50%;
+}
+.lt_aside .user p{
+  margin-top:30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color:#fff;
+  font-size:18px;
+}
+.lt_aside ul{
+  margin-top:60px;
+}
+.lt_aside ul li a{
+  height: 40px;
+  line-height: 40px;
+  color:#fff;
+  font-size:16px;
+  padding-left:40px;
+  border-left: 3px solid transparent;
+  display:block;
+  
+}
+.lt_aside ul li a.active{
+  border-left: 3px solid #3C8DBC;
+  background-color: #1D1F21;
+}
+.lt_aside ul li a i{
+  margin-right:6px;
+}
+.lt_aside ul li .child{
+  display:none;
+}
+.lt_aside ul li .child a{
+  padding-left:60px;
+}
+/* 头部 */
+.lt_header{
+  width: 100%;
+  height: 50px;
+  background-color: #3C8DBC;
+  line-height: 50px;
+  text-align :center;
+  position:fixed;
+  top:0;
+  left:0;
+  padding-left:180px;
+  transition:all 1s;
+
+}
+.lt_header.hidemenu{
+  padding-left:0;
+}
+.lt_header a{
+  width: 50px;
+  height: 50px;
+  color:#fff;
+  font-size: 20px;
+}
+/* 主体 */
+.lt_main{
+  width: 100%;
+  height: 1000px;
+  padding-top:50px;
+  padding-left: 180px;
+  transition:all 1s;
+}
+.lt_main.hidemenu{
+  padding-left:0;
+}
+.red{
+  color:#C23531;
+}
+.lt_main .content{
+  width: 100%;
+  height: 400px;
+
+}
+.lt_main .content .echarts_left,
+.lt_main .content .echarts_right{
+  width: 48%;
+  height: 400px;
+
+}
+.table.table-bordered th,
+.table.table-bordered td{
+  text-align:center;
+  vertical-align:middle;
+}
