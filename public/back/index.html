@@ -23,7 +23,7 @@
         <div class="nav">
             <ul>
                 <li><a href="#" class="active"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
-                <li><a href="javascript:;"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
+                <li><a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
                     <div class="child">
                         <a href="#">一级分类</a>
                         <a href="#">二级分类</a>
@@ -36,7 +36,7 @@
     <!-- 头部 -->
     <div class="lt_header">
         <a href="#" class="icon-left  pull-left"><i class="glyphicon glyphicon-align-justify "></i></a>
-        <a href="#" class="icon-right  pull-right"><i class="glyphicon glyphicon-log-out"></i></a>
+        <a href="#" class="icon-right  pull-right"><i class="glyphicon glyphicon-log-out" ></i></a>
     </div>
     <!-- 主体 -->
     <div class="lt_main">
@@ -59,12 +59,39 @@
 
     </div>
 
+    <!-- 
+        data-toggle="modal"  标记用于切换模态框
+        data-target="#myModal"   通过id关联具体显示哪个模态框
+     -->
+    <!-- 模态框 -->
+    <!-- 遮罩层 -->
+    <div class="modal fade" id="logoutModal" tabindex="-1">
+        <!-- modal-sm小模态框   modal-lg 大模态框  &times;  x-->
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" ><span>&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="red"><i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统么？</p>
+                </div>
+                <div class="modal-footer">
+                    <!-- data-dismiss="modal"  可以关闭模态框 -->
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="lib/nprogress/nprogress.js"></script>
     <script src="lib/echarts/echarts.min.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/isLogin.js"></script>
     <script src="js/index.js"></script>
 
 
