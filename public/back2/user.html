@@ -65,43 +65,37 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr>
-            <td>1</td>
-            <td>itcast</td>
-            <td>15757771111</td>
-            <td>正常</td>
-            <td><button class="btn btn-danger">禁用</button></td>
-          </tr> -->
+          <!-- 挖个坑 -->
         </tbody>
       </table>
 
       <!-- 分页 -->
       <nav class="pull-right">
-        <ul id="paginator">
-          <!-- <li>
-            <a href="#">
-              <span>&laquo;</span>
-            </a>
-          </li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li>
-            <a href="#">
-              <span>&raquo;</span>
-            </a>
-          </li> -->
-        </ul>
+        <ul id="paginator"></ul>
       </nav>
-
     </div>
-
-
   </div>
-
-  <!-- 模态框 -->
+  <!-- 操作模态框 -->
+  <div class="modal fade" id="userModal" tabindex="-1">
+    <!-- modal-sm小模态框   modal-lg 大模态框  &times;  x-->
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+          <i class="glyphicon glyphicon-info-sign red"></i>
+          <span>你确定要执行此操作吗？</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="userBtn">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 退出登录模态框 -->
   <!-- 
     data-toggle="modal"   标记用于切换的模态框
     data-target="#myModal"  通过id关联到具体的哪一个模态框
@@ -130,10 +124,11 @@
   <script type="text/html" id="tmp">
     {{ each rows v i }}
       <tr>
-        <td>{{i+1}}</td>
+        <td>{{i+1+(page-1)*size}}</td>
         <td>{{v.username}}</td>
         <td>{{v.mobile}}</td>
         <td>{{v.isDelete == 1? "正常":"禁用"}}</td>
+        <!-- 记录id -->
         <td data-id = "{{v.id}}">
           {{if v.isDelete == 1}}
           <button class="btn btn-danger">禁用</button>
