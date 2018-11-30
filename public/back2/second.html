@@ -22,10 +22,10 @@
       <p>VIP管理员蓉</p>
     </div>
     <ul>
-      <li><a href="user.html" ><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+      <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
       <li><a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
         <div class="child" style="display:block">
-          <a href="first.html" >一级分类</a>
+          <a href="first.html">一级分类</a>
           <a href="second.html" class="active">二级分类</a>
         </div>
       </li>
@@ -48,27 +48,110 @@
       <!-- 导航 -->
       <ol class="breadcrumb  mt_20">
         <li><a href="index.html">管理系统</a></li>
-        <li class="active">首页</li>
+        <li class="active">分类管理</li>
+        <li class="active">二级分类</li>
       </ol>
 
+      <!-- 按钮 -->
+      <button class="btn btn-default" id="categoryBtn">添加分类</button>
 
-
+      <!-- 表格 
+            序号	一级分类名称	二级分类名称	二级分类LOGO  
+      -->
+      <table class="table table-bordered table-hover mt_20">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>一级分类名称</th>
+            <th>二级分类名称</th>
+            <th>二级分类LOGO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 挖个坑 -->
+        </tbody>
+      </table>
     </div>
 
-
+    <!-- 分页 -->
+    <nav class="pull-right">
+      <ul id="paginator"></ul>
+    </nav>
   </div>
 
-  <!-- 模态框 -->
+
+
+
+  <!-- 添加模态框 -->
+  <div class="modal fade" id="addModal" tabindex="-1">
+    <!-- modal-sm小模态框   modal-lg 大模态框  &times;  x-->
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+
+        <div class="modal-body">
+          <form id="form">
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                  <span id="dropdownText">请选择一级分类</span>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <!-- 刨个坑 -->
+                </ul>
+              </div>
+              <input type="hidden" name="categoryId">
+              <!-- 火热的品牌 -->
+              <input type="hidden" name="hot" value="1">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="请输入二级分类" name="brandName">
+            </div>
+          <div class="form-group">
+            <label class="btn btn-default" for="fileupload">上传图片</label>
+            <!-- 注意:
+                    1. 指定name用于让后台获取图片, 所以不能乱写
+                    2. 指定data-url, 指定接口地址
+            -->
+            <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none;">
+          </div>
+          <div class="form-group" id="imgBox">
+            <img src="images/none.png" width="100">
+            <!-- 图片地址 -->
+            <input type="hidden" name="brandLogo">
+          </div>
+        </form>
+        </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <!-- h5新增的属性，可以让表单外面的按钮与表单关联起来，看起来像是在表单里面一样 -->
+        <button type="submit" class="btn btn-primary" form="form">添加</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+  <!-- 退出模态框 -->
   <!-- 
     data-toggle="modal"   标记用于切换的模态框
     data-target="#myModal"  通过id关联到具体的哪一个模态框
    -->
   <div class="modal fade" id="logoutModal" tabindex="-1">
     <!-- modal-sm小模态框   modal-lg 大模态框  &times;  x-->
-    <div class="modal-dialog modal-sm" >
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" ><span>&times;</span></button>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
         </div>
         <div class="modal-body">
@@ -83,12 +166,28 @@
     </div>
   </div>
 
+  <!-- 填坑 -->
+  <!-- 女士馆	阿萨德2	 -->
+  <script type="text/html" id="addTpl">
+    {{each rows v i}}
+    <tr>
+      <td>{{i+1+(page-1)*size}}</td>
+      <td>{{v.categoryName}}</td>
+      <td>{{v.brandName}}</td>
+      <td><img src="{{v.brandLogo}}" alt="" style= "height:50px"></td>
+    </tr>
+    {{/each}}
+  </script>
+
   <script src="lib/jquery/jquery.js"></script>
   <script src="lib/bootstrap/js/bootstrap.js"></script>
   <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
   <script src="lib/nprogress/nprogress.js"></script>
+  <script src="lib/template/template-web.js"></script>
+  <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
   <script src="js/common.js"></script>
   <script src="js/isLogin.js"></script>
+  <script src="js/second.js"></script>
 
 
 </body>
