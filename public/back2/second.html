@@ -33,14 +33,11 @@
     </ul>
   </div>
 
-
   <!-- 头部 -->
   <div class="lt_header">
     <a href="#" class="icon_left pull-left"><i class="glyphicon glyphicon-align-justify"></i></a>
     <a href="#" class="icon_right pull-right"><i class="glyphicon glyphicon-log-out"></i></a>
   </div>
-
-
 
   <!-- 主体 -->
   <div class="lt_main">
@@ -79,9 +76,6 @@
     </nav>
   </div>
 
-
-
-
   <!-- 添加模态框 -->
   <div class="modal fade" id="addModal" tabindex="-1">
     <!-- modal-sm小模态框   modal-lg 大模态框  &times;  x-->
@@ -95,9 +89,11 @@
 
         <div class="modal-body">
           <form id="form">
+
             <div class="form-group">
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                  <!-- 方便input修改 -->
                   <span id="dropdownText">请选择一级分类</span>
                   <span class="caret"></span>
                 </button>
@@ -109,32 +105,37 @@
               <!-- 火热的品牌 -->
               <input type="hidden" name="hot" value="1">
             </div>
+
             <div class="form-group">
               <input type="text" class="form-control" placeholder="请输入二级分类" name="brandName">
             </div>
-          <div class="form-group">
-            <label class="btn btn-default" for="fileupload">上传图片</label>
-            <!-- 注意:
+
+            <div class="form-group">
+              <label class="btn btn-default" for="fileupload">上传图片</label>
+              <!-- 注意:
                     1. 指定name用于让后台获取图片, 所以不能乱写
                     2. 指定data-url, 指定接口地址
             -->
-            <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none;">
-          </div>
-          <div class="form-group" id="imgBox">
-            <img src="images/none.png" width="100">
-            <!-- 图片地址 -->
-            <input type="hidden" name="brandLogo">
-          </div>
-        </form>
+              <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none;">
+            </div>
+
+            <div class="form-group" id="imgBox">
+              <img src="images/none.png" width="100">
+              <!-- 图片地址:添加隐藏域 -->
+              <input type="hidden" name="brandLogo">
+            </div>
+          </form>
         </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <!-- h5新增的属性，可以让表单外面的按钮与表单关联起来，看起来像是在表单里面一样 -->
-        <button type="submit" class="btn btn-primary" form="form">添加</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <!-- h5新增的属性，可以让表单外面的按钮与表单关联起来，看起来像是在表单里面一样 -->
+
+
+          <button type="submit" class="btn btn-primary" form="form">添加</button>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
 
@@ -179,12 +180,22 @@
     {{/each}}
   </script>
 
+  <!-- 下拉框的坑 -->
+  <script type="text/html" id="dropdownTpl">
+    {{each rows v i }}
+    <!-- 添加id，用于获取id。设置给隐藏域 -->
+      <li><a data-id ="{{v.id}}" href="#">{{v.categoryName}}</a></li>
+    {{/each}}
+  </script>
+
   <script src="lib/jquery/jquery.js"></script>
   <script src="lib/bootstrap/js/bootstrap.js"></script>
   <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
   <script src="lib/nprogress/nprogress.js"></script>
   <script src="lib/template/template-web.js"></script>
   <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+  <script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
   <script src="js/common.js"></script>
   <script src="js/isLogin.js"></script>
   <script src="js/second.js"></script>
