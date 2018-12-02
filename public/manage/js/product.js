@@ -223,6 +223,7 @@ $(function() {
 
   // 6. 注册校验成功事件
   $("#form").on("success.form.bv", function( e ) {
+
     // 阻止默认的提交
     e.preventDefault();
 
