@@ -6,30 +6,61 @@
     <!-- meta:vp 视口-->
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>乐淘商城</title>
+    <title>商品列表</title>
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="lib/mui/css/mui.css">
     <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/searchList.css">
 
 </head>
 
 <body>
     <div class="lt_container">
+
+        <!-- 头部 -->
         <div class="lt_header">
             <a href="javascript:hostory.back;" class="icon_left"><i class="mui-icon mui-icon-back"></i></a>
-            <h3>搜索中心</h3>
+            <h3>商品列表</h3>
         </div>
 
+        <!-- 内容 -->
         <div class="lt_main">
+            <!-- 搜索框 -->
             <div class="serch">
                 <input type="text" placeholder="请输入搜索关键字" class="search_input">
                 <button class="mui-btn mui-btn-primary srarch_btn">搜索</button>
             </div>
-            <div class="history">
-                <!-- 大坑 -->
+
+            <div class="content">
+                <div class="nav">
+
+                    <a href="#"> 上架时间<i class="fa fa-angle-down"></i></a>
+                    <a href="#"> 价格<i class="fa fa-angle-down"></i></a>
+                    <a href="#"> 库存<i class="fa fa-angle-down"></i></a>
+                    <a href="#"> 折扣<i class="fa fa-angle-down"></i></a>
+
+                </div>
+                <div class="product mui-clearfix">
+                    <!-- 大坑 -->
+                    <div class="item">
+                        <a href="#">
+                            <img src="images/product.jpg" alt="">
+                            <p class="info mui-ellipsis-2">撒吧开始减肥咯就是</p>
+                            <p>
+                                <span>666</span>
+                                <del>888</del>
+                            </p>
+                            <button class="mui mui-primary">立即购买</button>
+                        </a>
+                    </div>
+
+                    
+                </div>
+            </div>
         </div>
+
+
         <!-- 底部 -->
         <div class="lt_footer">
             <ul class="mui-cleafix">
@@ -54,32 +85,28 @@
     </div>
 
     <!-- 填坑 -->
-    <script type="text/html" id="historyTpl">
-        {{if list.length === 0}}
-            <p>没有更多数据了</p>
-        {{else}}
-            <div class="title mui-cleafix">
-                <span class="mui-pull-left">搜索历史</span>
-                <span class="mui-pull-right btn-empty"><i class="fa fa-trash">清空记录</i></span>
+    <script type="text/html" id="productTpl">
+        {{each rows v i}}
+        <div class="item">
+                <a href="#">
+                    <img src="{{v.brandLogo}}" alt="">
+                    <p class="info mui-ellipsis-2">{{v.brandName}}</p>
+                    <p>
+                        <span>666</span>
+                        <del>888</del>
+                    </p>
+                    <button class="mui mui-primary">立即购买</button>
+                </a>
             </div>
-            <ul>
-  
-        {{each list v i}}
-            <li>
-                <a href="searchList.html?key = {{v}}" class="mui-pull-left">{{v}}</a>
-                <i data-index = "{{i}}" class="btn_delete mui-pull-right mui-icon mui-icon-closeempty"></i></li>
-            </li>
-        {{/each}}
-            </ul>
-        {{/if}}
 
+        {{/each}}
     </script>
 
     <script src="lib/zepto/zepto.min.js"></script>
     <script src="lib/mui/js/mui.js"></script>
     <script src="lib/artTemplate/template-web.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/search.js"></script>
+    <script src="js/searchList.js"></script>
 </body>
 
 </html>
